@@ -11,7 +11,7 @@ class Path extends Component {
   pathIdx = 0;
   foundPath = [];
 
-  createFoundPath = () => {
+  findPath = () => {
     for (let i = 0; i < 16; i++) {
       this.foundPath.push(0);
     }
@@ -51,7 +51,7 @@ class Path extends Component {
   };
 
   render() {
-    this.createFoundPath();
+    this.findPath();
     this.consolePrint();
     return (
       <div className="path">

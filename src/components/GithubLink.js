@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 
 const GithubLink = () => {
   const githubHandler = () => {
-    window.open("https://github.com/meanjula");
+    window.open("https://github.com/meanjula/MazeGame");
   };
   return (
     <div className="link-wrapper">

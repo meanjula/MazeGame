@@ -55,17 +55,6 @@ class Maze extends Component {
       visited[x * 4 + y] === 0
     );
   };
-
-  calculatePaths = () => {
-    let visited = [];
-    for (let i = 0; i < 16; i++) {
-      visited[i] = 0;
-    }
-
-    this.mazeUtil(visited, 0, 0, []);
-    return this.paths;
-  };
-
   mazeUtil = (visited, x, y, currentPath) => {
     if (x === 3 && y === 3) {
       this.numPaths += 1;
@@ -90,6 +79,17 @@ class Maze extends Component {
     visited[4 * x + y] = 0;
     return;
   };
+
+  calculatePaths = () => {
+    let visited = [];
+    for (let i = 0; i < 16; i++) {
+      visited[i] = 0;
+    }
+
+    this.mazeUtil(visited, 0, 0, []);
+    return this.paths;
+  };
+
   getNumPaths = () => {
     return (
       <div style={{ color: "white" }}>
@@ -105,16 +105,16 @@ class Maze extends Component {
     let grids = document.getElementById("routes");
 
     for (let i = 0; i < this.paths.length; i++) {
-      const solution = (
+      const solutionPath = (
         <Path currentPath={this.paths[i]} maze={this.matrix}></Path>
       );
       const id = Math.random();
-      const d = document.createElement("span");
-      d.id = id;
+      const span = document.createElement("span");
+      span.id = id;
       const space = document.createElement("br");
-      grids.appendChild(d);
+      grids.appendChild(span);
       grids.appendChild(space);
-      ReactDOM.render(solution, document.getElementById(id));
+      ReactDOM.render(solutionPath, document.getElementById(id));
     }
   };
 
